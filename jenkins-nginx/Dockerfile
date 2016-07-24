@@ -11,3 +11,5 @@ COPY conf/nginx.conf /etc/nginx/nginx.conf
 EXPOSE 80
 
 CMD ["nginx"]
+
+CMD ["echo", "NGinX Container"]

@@ -16,3 +16,5 @@ USER jenkins
 
 #Set Defaults
 ENV JENKINS_OPTS="--logfile=/var/log/jenkins/jenkins.log --webroot=/var/cache/jenkins/war"
+
+CMD ["echo", "Jenkins master container"]
