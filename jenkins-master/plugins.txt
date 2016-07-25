@@ -4,8 +4,9 @@ cvs:2.12
 external-monitor-job:1.5
 git:2.5.2
 git-client:1.19.7
-github:1.76
+github-api:1.76
 github-oauth:0.24
+github-pullrequest:0.1.0-rc7
 javadoc:1.4
 junit:1.15
 ldap:1.12
