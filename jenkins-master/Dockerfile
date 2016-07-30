@@ -1,4 +1,4 @@
-FROM jenkins:1.651.3
+FROM jenkins:1.651.3-alpine
 MAINTAINER Lisa Ridley
 
 # Switch to root user

@@ -1,8 +1,9 @@
-FROM debian:jessie
+FROM alpine:3.4
 MAINTAINER Lisa Ridley
 
 # Create the jenkins user
-RUN useradd -d "/var/jenkins_home" -u 1000 -m -s /bin/bash jenkins
+RUN mkdir -p /var/jenkins_home
+RUN adduser jenkins -D -h "/var/jenkins_home" -u 1000 -s /bin/bash
 
 # Create the folders and volume mount points
 RUN mkdir -p /var/log/jenkins
