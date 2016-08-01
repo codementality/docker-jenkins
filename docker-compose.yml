@@ -13,6 +13,4 @@ jenkinsnginx:
     - "80:80"
   links:
     - jenkinsmaster:jenkins-master
-  depends_on:
-    - jenkinsmaster
   restart: always
