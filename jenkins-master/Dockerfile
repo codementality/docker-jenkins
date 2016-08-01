@@ -4,6 +4,13 @@ MAINTAINER Lisa Ridley
 # Switch to root user
 USER root
 
+# Upgrade all packages
+RUN apk update
+RUN apk upgrade
+
+RUN apk add --update sudo && rm -rf /var/cache/apk/*
+RUN echo "jenkins ALL=NOPASSWD: ALL" >> /etc/sudoers
+
 # Prep Jenkins Directories
 RUN mkdir /var/log/jenkins
 RUN mkdir /var/cache/jenkins
