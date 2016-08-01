@@ -5,7 +5,7 @@ build:
 run-data:
 	@docker run --name=jenkins-data myjenkinsdata
 run:
-	@docker run --name=jenkins-master -v /var/run/docker.sock:/var/run/docker.sock --volumes-from=jenkins-data -d myjenkins
+	@docker run --name=jenkins-master --volume /var/run/docker.sock:/var/run/docker.sock --volumes-from=jenkins-data -d myjenkins
 	@docker run -p 80:80 --name=jenkins-nginx --link jenkins-master:jenkins-master -d myjenkinsnginx
 stop:
 	@docker stop jenkins-master
