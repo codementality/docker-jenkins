@@ -1,21 +1,21 @@
-jenkinsdata:
-  build: jenkins-data
-jenkinsmaster:
-  build: jenkins-master
-  volumes_from:
-    - jenkinsdata
-  volumes:
-    - /var/run/docker.sock:/var/run/docker.sock
-    - /usr/bin/docker:/usr/bin/docker
-  ports:
-    - "50000:50000"
-    - "8080:8080"
-  restart: always
-  privileged: true
-jenkinsnginx:
-  build: jenkins-nginx
-  ports:
-    - "80:80"
-  links:
-    - jenkinsmaster:jenkins-master
-  restart: always
+version: '2'
+services:
+  jenkinsmaster:
+    build: jenkins-master
+    volumes:
+      - jenkinsdata:/var/jenkins_home
+      - jenkinslogs:/var/log/jenkins
+    ports:
+      - "50000:50000"
+      - "8080:8080"
+    privileged: true
+  jenkinsnginx:
+    build: jenkins-nginx
+    ports:
+      - "80:80"
+    links:
+      - jenkinsmaster:jenkins-master
+
+volumes:
+  jenkinsdata: #declare volume
+  jenkinslogs: #declare volume
